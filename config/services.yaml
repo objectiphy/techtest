@@ -25,3 +25,20 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Symfony\Component\HttpFoundation\Request:
+        class: Symfony\Component\HttpFoundation\Request
+        factory: ['@Symfony\Component\HttpFoundation\RequestStack', 'getCurrentRequest']
+
+    Symfony\Component\Serializer\Encoder\JsonEncoder: ~
+
+    Symfony\Component\Serializer\Serializer:
+        arguments:
+            $normalizers: ['@Symfony\Component\Serializer\Normalizer\ObjectNormalizer']
+            $encoders: ['@Symfony\Component\Serializer\Encoder\JsonEncoder']
+
+    App\Model\Service\QuoteService:
+        calls:
+            - addRatingFactor: ['@App\Model\Service\AbiCodeRatingProvider']
+            - addRatingFactor: ['@App\Model\Service\PostcodeRatingProvider']
+            - addRatingFactor: ['@App\Model\Service\AgeRatingProvider']
