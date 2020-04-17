@@ -3,12 +3,11 @@
 namespace App\Model\Service;
 
 use App\Entity\PostcodeRatingFactor;
-use App\Model\RatingFactorProviderInterface;
 use App\Model\Request\QuoteRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 
-class PostcodeRatingProvider implements RatingFactorProviderInterface
+class PostcodeRatingProvider implements RatingProviderInterface
 {
     private ObjectRepository $repository;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Service;
 
 use App\Model\Request\QuoteRequest;
 
-interface RatingFactorProviderInterface
+interface RatingProviderInterface
 {
     public function getRatingFactor(QuoteRequest $quoteRequest): float;
 }

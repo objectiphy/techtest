@@ -4,13 +4,12 @@
 namespace App\Model\Service;
 
 use App\Entity\AbiCodeRatingFactor;
-use App\Model\RatingFactorProviderInterface;
 use App\Model\Request\QuoteRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class AbiCodeRatingProvider implements RatingFactorProviderInterface
+class AbiCodeRatingProvider implements RatingProviderInterface
 {
     private ObjectRepository $repository;
     private HttpClientInterface $httpClient;

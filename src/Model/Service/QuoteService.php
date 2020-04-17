@@ -2,7 +2,6 @@
 
 namespace App\Model\Service;
 
-use App\Model\RatingFactorProviderInterface;
 use App\Model\Request\QuoteRequest;
 use App\Entity\Quote;
 
@@ -10,7 +9,7 @@ class QuoteService
 {
     private array $ratingFactorProviders = [];
 
-    public function addRatingFactor(RatingFactorProviderInterface $ratingFactorProvider)
+    public function addRatingFactor(RatingProviderInterface $ratingFactorProvider)
     {
         $this->ratingFactorProviders[] = $ratingFactorProvider;
     }
